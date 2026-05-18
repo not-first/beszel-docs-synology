@@ -49,40 +49,42 @@ For example, when using Cloudflare Access you might set `TRUSTED_AUTH_HEADER=Cf-
 
 Environment variables may optionally be prefixed with `BESZEL_AGENT_`.
 
-| Name                      | Default | Description                                                                                          |
-| ------------------------- | ------- | ---------------------------------------------------------------------------------------------------- |
-| `DATA_DIR`                | unset   | Persistent data directory.                                                                           |
-| `DISABLE_SSH`             | false   | Disable the SSH server completely (WebSocket connection only).                                       |
-| `DISK_USAGE_CACHE`        | unset   | Provide a duration like `5m` or `1h` to cache usage of extra disks and avoid waking them to recheck. |
-| `DOCKER_HOST`             | unset   | Overrides the Docker host (docker.sock).                                                             |
-| `EXCLUDE_CONTAINERS`      | unset   | Exclude containers from being monitored.                                                             |
-| `EXCLUDE_SMART`           | unset   | Exclude S.M.A.R.T. devices from being monitored.                                                     |
-| `EXTRA_FILESYSTEMS`       | unset   | Monitor extra disks if using binary. See [Additional Disks](./additional-disks).                     |
-| `FILESYSTEM`              | unset   | Device, partition, or mount point to use for root disk stats.                                        |
-| `HUB_URL`                 | unset   | URL of the hub.                                                                                      |
-| `INTEL_GPU_DEVICE`        | unset   | Specify `-d` value for `intel_gpu_top`. See [Intel GPU](./gpu.md#intel).                             |
-| `KEY`                     | unset   | Public SSH key(s) to use for authentication. Provided in hub.                                        |
-| `KEY_FILE`                | unset   | Read public keys from a file instead of an environment variable.                                     |
-| `LHM`                     | false   | Use LibreHardwareMonitor for Windows sensors.                                                        |
-| `LISTEN`                  | 45876   | Port or host:port to listen on.                                                                      |
-| `LOG_LEVEL`               | info    | Logging level. Valid values: "debug", "info", "warn", "error".                                       |
-| `MEM_CALC`                | unset   | Overrides the default memory calculation.                                                            |
-| `NETWORK`                 | unset   | Network for listener. "tcp", "tcp4", "tcp6", or "unix".                                              |
-| `NICS`                    | unset   | Whitelist or blacklist network interfaces.                                                           |
-| `NVML`                    | false   | Use experimental NVML integration for GPU monitoring.                                                |
-| `PRIMARY_SENSOR`          | unset   | Display specific temperature sensor in 'All Systems' table.                                          |
-| `SENSORS`                 | unset   | Whitelist or blacklist temperature sensors.                                                          |
-| `SENSORS_TIMEOUT`         | 2s      | Duration to customize the temperature collection timeout.                                            |
-| `SERVICE_PATTERNS`        | unset   | List of systemd service patterns to monitor.                                                         |
-| `SKIP_GPU`                | false   | Disable GPU monitoring.                                                                              |
-| `SKIP_SYSTEMD`            | false   | Disable Systemd service monitoring.                                                                  |
-| `SMART_DEVICES`           | unset   | List of S.M.A.R.T. devices to monitor.                                                               |
-| `SMART_DEVICES_SEPARATOR` | ,       | Separator used to split `SMART_DEVICES`                                                              |
-| `SMART_INTERVAL`          | 1h      | Interval to check S.M.A.R.T. devices.                                                                |
-| `SYS_SENSORS`             | unset   | Overrides sys path for sensors. See [#160](https://github.com/henrygd/beszel/discussions/160).       |
-| `SYSTEM_NAME`             | unset   | Override system name on universal token registration. Defaults to hostname if unset.                 |
-| `TOKEN`                   | unset   | WebSocket registration token. Provided in hub.                                                       |
-| `TOKEN_FILE`              | unset   | Read token from a file instead of an environment variable.                                           |
+`Since` shows the first Beszel release where the variable is mentioned in the public release notes.
+
+| Name                      | Default | Description                                                                                          | Since |
+| ------------------------- | ------- | ---------------------------------------------------------------------------------------------------- | ----- |
+| `DATA_DIR`                | unset   | Persistent data directory.                                                                           | - |
+| `DISABLE_SSH`             | false   | Disable the SSH server completely (WebSocket connection only).                                       | 0.18.4 |
+| `DISK_USAGE_CACHE`        | unset   | Provide a duration like `5m` or `1h` to cache usage of extra disks and avoid waking them to recheck. | 0.17.0 |
+| `DOCKER_HOST`             | unset   | Overrides the Docker host (docker.sock).                                                             | - |
+| `EXCLUDE_CONTAINERS`      | unset   | Exclude containers from being monitored.                                                             | 0.15.3 |
+| `EXCLUDE_SMART`           | unset   | Exclude S.M.A.R.T. devices from being monitored.                                                     | 0.16.0 |
+| `EXTRA_FILESYSTEMS`       | unset   | Monitor extra disks if using binary. See [Additional Disks](./additional-disks).                     | - |
+| `FILESYSTEM`              | unset   | Device, partition, or mount point to use for root disk stats.                                        | - |
+| `HUB_URL`                 | unset   | URL of the hub.                                                                                      | - |
+| `INTEL_GPU_DEVICE`        | unset   | Specify `-d` value for `intel_gpu_top`. See [Intel GPU](./gpu.md#intel).                             | 0.15.3 |
+| `KEY`                     | unset   | Public SSH key(s) to use for authentication. Provided in hub.                                        | - |
+| `KEY_FILE`                | unset   | Read public keys from a file instead of an environment variable.                                     | - |
+| `LHM`                     | false   | Use LibreHardwareMonitor for Windows sensors.                                                        | 0.12.7 |
+| `LISTEN`                  | 45876   | Port or host:port to listen on.                                                                      | - |
+| `LOG_LEVEL`               | info    | Logging level. Valid values: "debug", "info", "warn", "error".                                       | - |
+| `MEM_CALC`                | unset   | Overrides the default memory calculation.                                                            | - |
+| `NETWORK`                 | unset   | Network for listener. "tcp", "tcp4", "tcp6", or "unix".                                              | - |
+| `NICS`                    | unset   | Whitelist or blacklist network interfaces.                                                           | 0.12.11 |
+| `NVML`                    | false   | Use experimental NVML integration for GPU monitoring.                                                | - |
+| `PRIMARY_SENSOR`          | unset   | Display specific temperature sensor in 'All Systems' table.                                          | - |
+| `SENSORS`                 | unset   | Whitelist or blacklist temperature sensors.                                                          | - |
+| `SENSORS_TIMEOUT`         | 2s      | Duration to customize the temperature collection timeout.                                            | 0.18.7 |
+| `SERVICE_PATTERNS`        | unset   | List of systemd service patterns to monitor.                                                         | 0.18.5 |
+| `SKIP_GPU`                | false   | Disable GPU monitoring.                                                                              | 0.12.12 |
+| `SKIP_SYSTEMD`            | false   | Disable Systemd service monitoring.                                                                  | 0.17.0 |
+| `SMART_DEVICES`           | unset   | List of S.M.A.R.T. devices to monitor.                                                               | 0.15.1 |
+| `SMART_DEVICES_SEPARATOR` | ,       | Separator used to split `SMART_DEVICES`                                                              | 0.18.3 |
+| `SMART_INTERVAL`          | 1h      | Interval to check S.M.A.R.T. devices.                                                                | 0.18.0 |
+| `SYS_SENSORS`             | unset   | Overrides sys path for sensors. See [#160](https://github.com/henrygd/beszel/discussions/160).       | - |
+| `SYSTEM_NAME`             | unset   | Override system name on universal token registration. Defaults to hostname if unset.                 | 0.13.0 |
+| `TOKEN`                   | unset   | WebSocket registration token. Provided in hub.                                                       | - |
+| `TOKEN_FILE`              | unset   | Read token from a file instead of an environment variable.                                           | - |
 
 ### `DATA_DIR`
 

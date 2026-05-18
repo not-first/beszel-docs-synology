@@ -47,39 +47,40 @@
 
 环境变量可以选择性地以 `BESZEL_AGENT_` 作为前缀。
 
-| 名称                      | 默认值 | 描述                                                                                         |
-| ------------------------- | ------ | -------------------------------------------------------------------------------------------- |
-| `DATA_DIR`                | 未设置 | 持久数据目录。                                                                               |
-| `DISK_USAGE_CACHE`        | 未设置 | 提供类似 `5m` 或 `1h` 的持续时间来缓存额外磁盘的使用情况，避免唤醒它们进行重新检查。         |
-| `DOCKER_HOST`             | 未设置 | 覆盖 Docker 主机 (docker.sock)。                                                             |
-| `EXCLUDE_CONTAINERS`      | 未设置 | 排除容器不被监控。                                                                           |
-| `EXCLUDE_SMART`           | 未设置 | 排除 S.M.A.R.T. 设备不被监控。                                                               |
-| `EXTRA_FILESYSTEMS`       | 未设置 | 如果使用二进制文件，则监控额外的磁盘。请参阅 [其他磁盘](./additional-disks.md)。             |
-| `FILESYSTEM`              | 未设置 | 用于根磁盘统计的设备、分区或挂载点。                                                         |
-| `HUB_URL`                 | 未设置 | 中心的 URL。                                                                                 |
-| `INTEL_GPU_DEVICE`        | 未设置 | 指定 `intel_gpu_top` 的 `-d` 值。请参阅 [Intel GPU](./gpu.md#intel)。                        |
-| `KEY`                     | 未设置 | 用于身份验证的公共 SSH 密钥（可多个）。在中心提供。                                          |
-| `KEY_FILE`                | 未设置 | 从文件中读取公钥（可多个），而不是从环境变量中读取。                                         |
-| `LHM`                     | false  | 为 Windows 传感器使用 LibreHardwareMonitor。                                                 |
-| `LISTEN`                  | 45876  | 监听的端口或主机:端口。                                                                      |
-| `LOG_LEVEL`               | info   | 日志级别。有效值: "debug", "info", "warn", "error"。                                         |
-| `MEM_CALC`                | 未设置 | 覆盖默认内存计算。                                                                           |
-| `NETWORK`                 | 未设置 | 监听器的网络类型。"tcp"、"tcp4"、"tcp6" 或 "unix"。                                          |
-| `NICS`                    | 未设置 | 网络接口的白名单或黑名单。                                                                   |
-| `NVML`                    | false  | 使用实验性 NVML 集成进行 GPU 监控。                                                          |
-| `PRIMARY_SENSOR`          | 未设置 | 在"所有系统"表格中显示的特定温度传感器。                                                     |
-| `SENSORS`                 | 未设置 | 温度传感器的白名单或黑名单。                                                                 |
-| `SENSORS_TIMEOUT`         | 2s     | 用于自定义温度采集超时的持续时间。                                                           |
-| `SERVICE_PATTERNS`        | 未设置 | 要监控的 systemd 服务模式列表。                                                              |
-| `SKIP_GPU`                | false  | 禁用 GPU 监控。                                                                              |
-| `SKIP_SYSTEMD`            | false  | 禁用 Systemd 服务监控。                                                                      |
-| `SMART_DEVICES`           | 未设置 | 要监控的 S.M.A.R.T. 设备列表。                                                               |
-| `SMART_DEVICES_SEPARATOR` | ,      | 用于分割 `SMART_DEVICES` 的分隔符                                                            |
-| `SMART_INTERVAL`          | 1h     | 检查 S.M.A.R.T. 设备的间隔时间。                                                             |
-| `SYS_SENSORS`             | 未设置 | 覆盖用于传感器的系统路径。请参阅 [#160](https://github.com/henrygd/beszel/discussions/160)。 |
-| `SYSTEM_NAME`             | 未设置 | 在通用令牌注册时覆盖系统名称。未设置时默认为主机名。                                         |
-| `TOKEN`                   | 未设置 | WebSocket 注册令牌。在中心提供。                                                             |
-| `TOKEN_FILE`              | 未设置 | 从文件中读取令牌，而不是从环境变量中读取。                                                   |
+| 名称                      | 默认值 | 描述                                                                                         | Since |
+| ------------------------- | ------ | -------------------------------------------------------------------------------------------- | ----- |
+| `DATA_DIR`                | 未设置 | 持久数据目录。                                                                               | - |
+| `DISABLE_SSH`             | false  | 禁用 SSH 服务器（仅 WebSocket 连接）。                                                         | 0.18.4 |
+| `DISK_USAGE_CACHE`        | 未设置 | 提供类似 `5m` 或 `1h` 的持续时间来缓存额外磁盘的使用情况，避免唤醒它们进行重新检查。         | 0.17.0 |
+| `DOCKER_HOST`             | 未设置 | 覆盖 Docker 主机 (docker.sock)。                                                             | - |
+| `EXCLUDE_CONTAINERS`      | 未设置 | 排除容器不被监控。                                                                           | 0.15.3 |
+| `EXCLUDE_SMART`           | 未设置 | 排除 S.M.A.R.T. 设备不被监控。                                                               | 0.16.0 |
+| `EXTRA_FILESYSTEMS`       | 未设置 | 如果使用二进制文件，则监控额外的磁盘。请参阅 [其他磁盘](./additional-disks.md)。             | - |
+| `FILESYSTEM`              | 未设置 | 用于根磁盘统计的设备、分区或挂载点。                                                         | - |
+| `HUB_URL`                 | 未设置 | 中心的 URL。                                                                                 | - |
+| `INTEL_GPU_DEVICE`        | 未设置 | 指定 `intel_gpu_top` 的 `-d` 值。请参阅 [Intel GPU](./gpu.md#intel)。                        | 0.15.3 |
+| `KEY`                     | 未设置 | 用于身份验证的公共 SSH 密钥（可多个）。在中心提供。                                          | - |
+| `KEY_FILE`                | 未设置 | 从文件中读取公钥（可多个），而不是从环境变量中读取。                                         | - |
+| `LHM`                     | false  | 为 Windows 传感器使用 LibreHardwareMonitor。                                                 | 0.12.7 |
+| `LISTEN`                  | 45876  | 监听的端口或主机:端口。                                                                      | - |
+| `LOG_LEVEL`               | info   | 日志级别。有效值: "debug", "info", "warn", "error"。                                         | - |
+| `MEM_CALC`                | 未设置 | 覆盖默认内存计算。                                                                           | - |
+| `NETWORK`                 | 未设置 | 监听器的网络类型。"tcp"、"tcp4"、"tcp6" 或 "unix"。                                          | - |
+| `NICS`                    | 未设置 | 网络接口的白名单或黑名单。                                                                   | 0.12.11 |
+| `NVML`                    | false  | 使用实验性 NVML 集成进行 GPU 监控。                                                          | - |
+| `PRIMARY_SENSOR`          | 未设置 | 在"所有系统"表格中显示的特定温度传感器。                                                     | - |
+| `SENSORS`                 | 未设置 | 温度传感器的白名单或黑名单。                                                                 | - |
+| `SENSORS_TIMEOUT`         | 2s     | 用于自定义温度采集超时的持续时间。                                                           | 0.18.7 |
+| `SERVICE_PATTERNS`        | 未设置 | 要监控的 systemd 服务模式列表。                                                              | 0.18.5 |
+| `SKIP_GPU`                | false  | 禁用 GPU 监控。                                                                              | 0.12.12 |
+| `SKIP_SYSTEMD`            | false  | 禁用 Systemd 服务监控。                                                                      | 0.17.0 |
+| `SMART_DEVICES`           | 未设置 | 要监控的 S.M.A.R.T. 设备列表。                                                               | 0.15.1 |
+| `SMART_DEVICES_SEPARATOR` | ,      | 用于分割 `SMART_DEVICES` 的分隔符                                                            | 0.18.3 |
+| `SMART_INTERVAL`          | 1h     | 检查 S.M.A.R.T. 设备的间隔时间。                                                             | 0.18.0 |
+| `SYS_SENSORS`             | 未设置 | 覆盖用于传感器的系统路径。请参阅 [#160](https://github.com/henrygd/beszel/discussions/160)。 | - |
+| `SYSTEM_NAME`             | 未设置 | 在通用令牌注册时覆盖系统名称。未设置时默认为主机名。                                         | 0.13.0 |
+| `TOKEN`                   | 未设置 | WebSocket 注册令牌。在中心提供。                                                             | - |
+| `TOKEN_FILE`              | 未设置 | 从文件中读取令牌，而不是从环境变量中读取。                                                   | - |
 
 ### `DATA_DIR`
 
