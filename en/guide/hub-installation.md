@@ -62,7 +62,7 @@ This command downloads and runs our `install-hub.sh` script. The script installs
 
 - `-u` : Uninstall
 - `-p <port>` : Specify a port number (default: 8090)
-- `-c <url>` : Use a custom GitHub mirror URL (e.g. https://ghfast.top/)
+- `-c <url>` : Use a custom GitHub mirror URL (e.g. https://ghfast.top/ )
 - `--auto-update`: Enable automatic daily updates
 - `-h`: Show help
 
