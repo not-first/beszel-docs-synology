@@ -10,6 +10,8 @@
 
 中心会向代理程序发起 TCP 连接，因此请确保代理系统上的端口未被阻止。
 
+如果您使用 SSH 连接模式且中心宿主机设置了 `iptables -P FORWARD DROP`，连接可能会悄无声息地失败。在这种情况下，请改用 WebSocket 模式，或在中心宿主机上允许转发数据包。
+
 1. 检查所有活动的防火墙，例如 iptables，以及您的云服务提供商的防火墙设置（如果适用）。添加允许 TCP 连接到该端口的入站规则。
 2. 或者，使用 WireGuard、Tailscale（[视频教程](https://www.youtube.com/watch?v=O_9wT-5LoHM)）、Cloudflare Tunnel（[教程](https://github.com/henrygd/beszel/discussions/250)）或 Pangolin（[教程](https://github.com/henrygd/beszel/discussions/1163)）等软件安全地绕过防火墙。
 

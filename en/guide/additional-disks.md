@@ -49,7 +49,9 @@ Environment="EXTRA_FILESYSTEMS=sdb,sdc1,mmcblk0,/mnt/network-share"
 
 If using Systemd, the service configuration is usually located in `/etc/systemd/system/beszel-agent.service`.
 
-Add `RequiresMountsFor` in Unit section to mount disks before the agent starts. Mount points should match `/etc/fstab`
+`RequiresMountsFor=` forces systemd to wait for the listed mount points before starting the agent. That is a risky default for disk monitoring, because a failed mount can prevent the service from starting at all.
+
+A safer option is to omit `RequiresMountsFor=` and let the agent monitor the paths directly. If you do need ordering, use `After=mnt-ssd.mount` (or the matching mount unit) rather than `RequiresMountsFor=`.
 
 After editing the service, reload system units with `systemctl daemon-reload`, followed by restarting the service with `systemctl restart beszel-agent`.
 

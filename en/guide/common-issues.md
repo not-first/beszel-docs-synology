@@ -10,6 +10,8 @@ The agent initiates a WebSocket connection to the hub at `/api/beszel/agent-conn
 
 The hub initiates a TCP connection to the agent, so make sure the port on the agent system is not blocked.
 
+If you are using SSH connection mode and the hub host has `iptables -P FORWARD DROP`, the connection may fail silently. In that case, switch to WebSocket mode or allow forwarded packets on the hub host.
+
 1. Check any active firewalls, like iptables, and your cloud provider's firewall settings if applicable. Add an inbound rule allowing TCP connections to the port.
 2. Alternatively, use software like WireGuard, Tailscale ([video instructions](https://www.youtube.com/watch?v=O_9wT-5LoHM)), Cloudflare Tunnel ([instructions](https://github.com/henrygd/beszel/discussions/250)), or Pangolin ([instructions](https://github.com/henrygd/beszel/discussions/1163)) to securely bypass the firewall.
 

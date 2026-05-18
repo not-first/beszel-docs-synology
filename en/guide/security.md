@@ -6,6 +6,8 @@ The hub and agent can communicate with each other over SSH or WebSocket.
 
 The SSH connection is initiated by the hub and connects to the agent's SSH server. This is ideal when your hub can reach your agents, but your agents cannot reach the hub. For example, if the hub is on a private network.
 
+SSH mode requires the hub host to allow forwarded packets between the hub container and the upstream agent connection. Hosts with `iptables -P FORWARD DROP` or equivalent firewall hardening can break SSH mode silently. In that case, use WebSocket mode instead, where the agent initiates the connection.
+
 When the hub is started for the first time, it generates an ED25519 key. The agent's SSH server is configured to accept connections using this key only. It does not provide a pseudo-terminal or accept input, so it's impossible to execute commands on the agent even if your private key is compromised.
 
 ## WebSocket connection

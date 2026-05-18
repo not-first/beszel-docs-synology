@@ -33,6 +33,12 @@ services:
     volumes:
       - ./beszel_data:/beszel_data
       - ./beszel_socket:/beszel_socket
+    healthcheck:
+      test: ['CMD', '/beszel', 'health', '--url', 'http://localhost:8090']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
 
   beszel-agent:
     image: henrygd/beszel-agent:latest
