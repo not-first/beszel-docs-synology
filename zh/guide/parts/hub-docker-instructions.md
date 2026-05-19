@@ -33,12 +33,11 @@ services:
     volumes:
       - ./beszel_data:/beszel_data
       - ./beszel_socket:/beszel_socket
-    healthcheck:
-      test: ['CMD', '/beszel', 'health', '--url', 'http://localhost:8090']
-      interval: 30s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
+    # healthcheck:
+    #   test: ['CMD', '/beszel', 'health', '--url', 'http://localhost:8090']
+    #   interval: 120s
+    #   start_period: 10s
+    #   timeout: 5s
 
   beszel-agent:
     image: henrygd/beszel-agent:latest
@@ -54,6 +53,9 @@ services:
       HUB_URL: http://localhost:8090
       TOKEN: <令牌>
       KEY: "<密钥>"
+    # healthcheck:
+    #   test: ['CMD', '/agent', 'health']
+    #   interval: 120s
 ```
 
 ::::
